@@ -329,12 +329,21 @@ static const char * device_table[SND_DEVICE_MAX] = {
     /* Playback sound devices */
     [SND_DEVICE_OUT_HANDSET] = "handset",
     [SND_DEVICE_OUT_SPEAKER] = "speaker",
+    [SND_DEVICE_OUT_SPEAKER_OFF_DOLBY] = "speaker-off-dolby",
+// ZTE_chenjun
+    [SND_DEVICE_OUT_SPEAKER_AKM] = "speaker-akm",
+    [SND_DEVICE_OUT_SPEAKER_AKM_OFF_DOLBY] = "speaker-akm-off-dolby",
+//
     [SND_DEVICE_OUT_SPEAKER_EXTERNAL_1] = "speaker-ext-1",
     [SND_DEVICE_OUT_SPEAKER_EXTERNAL_2] = "speaker-ext-2",
     [SND_DEVICE_OUT_SPEAKER_VBAT] = "speaker-vbat",
     [SND_DEVICE_OUT_SPEAKER_REVERSE] = "speaker-reverse",
     [SND_DEVICE_OUT_HEADPHONES] = "headphones",
     [SND_DEVICE_OUT_HEADPHONES_44_1] = "headphones-44.1",
+// ZTE_chenjun
+    [SND_DEVICE_OUT_HEADPHONES_HI_FI] = "headphones-hi-fi",
+    [SND_DEVICE_OUT_HEADPHONES_OFF_DOLBY] = "headphones-off-dolby", 
+//
     [SND_DEVICE_OUT_LINE] = "line",
     [SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES] = "speaker-and-headphones",
     [SND_DEVICE_OUT_SPEAKER_AND_LINE] = "speaker-and-line",
@@ -369,6 +378,7 @@ static const char * device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED] = "voice-speaker-protected",
     [SND_DEVICE_OUT_SPEAKER_PROTECTED_VBAT] = "speaker-protected-vbat",
     [SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED_VBAT] = "voice-speaker-protected-vbat",
+    [SND_DEVICE_OUT_HAC] = "handset-hac", //liyunteng add hac
 
     /* Capture sound devices */
     [SND_DEVICE_IN_HANDSET_MIC] = "handset-mic",
@@ -389,8 +399,30 @@ static const char * device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_IN_SPEAKER_DMIC_NS] = "speaker-dmic-endfire",
     [SND_DEVICE_IN_SPEAKER_DMIC_AEC_NS] = "speaker-dmic-endfire",
     [SND_DEVICE_IN_HEADSET_MIC] = "headset-mic",
+    // ZTE_chenjun:
+    [SND_DEVICE_IN_HEADSET_WECHAT_MIC] = "headset-mic",
+	// ZTE_chenjun:
+/* ZTE_MODIFY for audio begin */
+    [SND_DEVICE_IN_TEST_BOTTOM_MIC] = "bottom-mic",
+    [SND_DEVICE_IN_TEST_TOP_MIC] = "top-mic",
+    [SND_DEVICE_IN_TEST_ASSIST_BOTTOM_MIC] = "assist-bottom-mic",
+    [SND_DEVICE_IN_STEREO_RECORD_MIC] = "stereo-record-mic",
+    [SND_DEVICE_IN_DIRECTION_RECORD_MIC] = "directional-record-mic",
+    [SND_DEVICE_IN_TRANSLATION_WORD_RECORD_MIC] = "translation-word-mic",
+    [SND_DEVICE_IN_HIFI_RECORD_MIC] = "hifi-record-mic",
+    [SND_DEVICE_IN_FARAWAY_RECORD_MIC] = "faraway-record-mic", 
+    [SND_DEVICE_IN_RECOGNITION_FAR_TALK_DMIC] = "recognition-far-talk-mic",
+/* ZTE_MODIFY for audio end */
+/* ZTE_MODIFY for bargein begin */
+    [SND_DEVICE_IN_BARGE_IN_HEADSET_AND_SPEAKER_MIC] = "bargein-speaker-and-headset-mic",
+    [SND_DEVICE_IN_BARGE_IN_SPK_MIC] = "bargein-speaker-mic",
+    [SND_DEVICE_IN_BARGE_IN_HEADPHONE_MIC] = "bargein-headphone-mic",
+    [SND_DEVICE_IN_BARGE_IN_HEADPHONE_AND_SPEAKER_MIC] = "bargein-speaker-and-headphone-mic",
+/* ZTE_MODIFY for bargein end */
     [SND_DEVICE_IN_HEADSET_MIC_FLUENCE] = "headset-mic",
     [SND_DEVICE_IN_VOICE_SPEAKER_MIC] = "voice-speaker-mic",
+    // ZTE_chenjun:
+    [SND_DEVICE_IN_VOICE_SPEAKER_FOR_HEADPHONE_MIC] = "voice-speaker-for-headphone-mic",	
     [SND_DEVICE_IN_VOICE_HEADSET_MIC] = "voice-headset-mic",
     [SND_DEVICE_IN_HDMI_MIC] = "hdmi-mic",
     [SND_DEVICE_IN_BT_SCO_MIC] = "bt-sco-mic",
@@ -408,6 +440,15 @@ static const char * device_table[SND_DEVICE_MAX] = {
 
     [SND_DEVICE_IN_VOICE_REC_MIC] = "voice-rec-mic",
     [SND_DEVICE_IN_VOICE_REC_MIC_NS] = "voice-rec-mic",
+	
+	// ZTE_chenjun:
+    [SND_DEVICE_IN_KARAOKE_HEAVY_MIC] = "headset-karaoke-heavy-mic",
+    [SND_DEVICE_IN_KARAOKE_MIDDLE_MIC] = "headset-karaoke-middle-mic",
+    [SND_DEVICE_IN_KARAOKE_LIGHT_MIC] = "headset-karaoke-light-mic",
+    [SND_DEVICE_IN_KARAOKE_SPK_ROOM_MIC] = "headset-karaoke-spk-room-mic",
+    [SND_DEVICE_IN_KARAOKE_SPK_LIVE_MIC] = "headset-karaoke-spk-live-mic",
+    [SND_DEVICE_IN_KARAOKE_SPK_THEATER_MIC] = "headset-karaoke-spk-theater-mic",
+
     [SND_DEVICE_IN_VOICE_REC_DMIC_STEREO] = "voice-rec-dmic-ef",
     [SND_DEVICE_IN_VOICE_REC_DMIC_FLUENCE] = "voice-rec-dmic-ef-fluence",
     [SND_DEVICE_IN_USB_HEADSET_MIC] = "usb-headset-mic",
@@ -423,6 +464,12 @@ static const char * device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_IN_SPEAKER_DMIC_AEC_BROADSIDE] = "speaker-dmic-broadside",
     [SND_DEVICE_IN_SPEAKER_DMIC_NS_BROADSIDE] = "speaker-dmic-broadside",
     [SND_DEVICE_IN_SPEAKER_DMIC_AEC_NS_BROADSIDE] = "speaker-dmic-broadside",
+	// ZTE_chenjun:
+    /** ZTE_MODIFY wangjunwei10096760 for drivemode input source, 2015-03-21 */
+    [SND_DEVICE_IN_DRIVER_VOICE_REC_MIC] = "driver-voice-rec-mic",
+    [SND_DEVICE_IN_DRIVER_SPEAKER_BARGEIN_MIC] = "driver-bargein-speaker-mic",
+    [SND_DEVICE_IN_DRIVER_HEADPHONE_BARGEIN_MIC] = "driver-bargein-headphone-mic",
+    /** ZTE_MODIFY wangjunwei end */
     [SND_DEVICE_IN_HANDSET_QMIC] = "quad-mic",
     [SND_DEVICE_IN_SPEAKER_QMIC_AEC] = "quad-mic",
     [SND_DEVICE_IN_SPEAKER_QMIC_NS] = "quad-mic",
@@ -435,6 +482,11 @@ static const char * device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_IN_UNPROCESSED_THREE_MIC] = "three-mic",
     [SND_DEVICE_IN_UNPROCESSED_QUAD_MIC] = "quad-mic",
     [SND_DEVICE_IN_UNPROCESSED_HEADSET_MIC] = "headset-mic",
+/* ZTE weizj add audioloop test start*/
+    [SND_DEVICE_IN_VOICE_SPEAKER_MIC_LOOP] = "voice-speaker-mic-loop",
+    [SND_DEVICE_IN_CAPTURE_MAIN_MIC] = "main-mic",
+    [SND_DEVICE_IN_CAPTURE_AUX_MIC] = "aux-mic",
+/* ZTE weizj add audioloop test end*/
 };
 
 // Platform specific backend bit width table
@@ -445,6 +497,11 @@ static int acdb_device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_NONE] = -1,
     [SND_DEVICE_OUT_HANDSET] = 7,
     [SND_DEVICE_OUT_SPEAKER] = 14,
+    [SND_DEVICE_OUT_SPEAKER_OFF_DOLBY] = 207,
+// ZTE_chenjun
+    [SND_DEVICE_OUT_SPEAKER_AKM] = 15,
+    [SND_DEVICE_OUT_SPEAKER_AKM_OFF_DOLBY] = 207,
+//
     [SND_DEVICE_OUT_SPEAKER_EXTERNAL_1] = 130,
     [SND_DEVICE_OUT_SPEAKER_EXTERNAL_2] = 130,
     [SND_DEVICE_OUT_SPEAKER_VBAT] = 14,
@@ -452,6 +509,10 @@ static int acdb_device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_OUT_LINE] = 10,
     [SND_DEVICE_OUT_HEADPHONES] = 10,
     [SND_DEVICE_OUT_HEADPHONES_44_1] = 10,
+// ZTE_chenjun
+    [SND_DEVICE_OUT_HEADPHONES_HI_FI] = 201,
+    [SND_DEVICE_OUT_HEADPHONES_OFF_DOLBY] = 207,
+//
     [SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES] = 10,
     [SND_DEVICE_OUT_SPEAKER_AND_LINE] = 10,
     [SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES_EXTERNAL_1] = 130,
@@ -485,9 +546,42 @@ static int acdb_device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED] = 101,
     [SND_DEVICE_OUT_SPEAKER_PROTECTED_VBAT] = 124,
     [SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED_VBAT] = 101,
+    [SND_DEVICE_OUT_HAC] = 200,   //liyunteng add hac
 
     [SND_DEVICE_IN_HANDSET_MIC] = 4,
     [SND_DEVICE_IN_HANDSET_MIC_EXTERNAL] = 4,
+	// ZTE_chenjun:
+/* ZTE_MODIFY for audio begin */
+    [SND_DEVICE_IN_TEST_BOTTOM_MIC] = 4,
+    [SND_DEVICE_IN_TEST_TOP_MIC] = 4,
+    [SND_DEVICE_IN_TEST_ASSIST_BOTTOM_MIC] = 4,
+    [SND_DEVICE_IN_STEREO_RECORD_MIC] = 4,
+    [SND_DEVICE_IN_DIRECTION_RECORD_MIC] = 4,
+    [SND_DEVICE_IN_TRANSLATION_WORD_RECORD_MIC] = 4,
+    [SND_DEVICE_IN_HIFI_RECORD_MIC] = 4,
+    [SND_DEVICE_IN_FARAWAY_RECORD_MIC] = 4,
+    [SND_DEVICE_IN_RECOGNITION_FAR_TALK_DMIC] = 4,
+/* ZTE_MODIFY for audio end */
+/* ZTE_MODIFY for bargein begin */
+    [SND_DEVICE_IN_BARGE_IN_HEADSET_AND_SPEAKER_MIC] = 8,
+    [SND_DEVICE_IN_BARGE_IN_SPK_MIC] = 4,
+    [SND_DEVICE_IN_BARGE_IN_HEADPHONE_MIC] = 4,
+    [SND_DEVICE_IN_BARGE_IN_HEADPHONE_AND_SPEAKER_MIC] = 4,
+/* ZTE_MODIFY for bargein end */
+
+    [SND_DEVICE_IN_DRIVER_VOICE_REC_MIC] = 11,
+    [SND_DEVICE_IN_DRIVER_SPEAKER_BARGEIN_MIC] = 114,
+    [SND_DEVICE_IN_DRIVER_HEADPHONE_BARGEIN_MIC] = 114,
+//
+
+// ZTE_chenjun:
+    [SND_DEVICE_IN_KARAOKE_HEAVY_MIC] = 8,
+    [SND_DEVICE_IN_KARAOKE_MIDDLE_MIC] = 8,
+    [SND_DEVICE_IN_KARAOKE_LIGHT_MIC] = 8,
+    [SND_DEVICE_IN_KARAOKE_SPK_ROOM_MIC] = 8,
+    [SND_DEVICE_IN_KARAOKE_SPK_LIVE_MIC] = 8,
+    [SND_DEVICE_IN_KARAOKE_SPK_THEATER_MIC] = 8,
+
     [SND_DEVICE_IN_HANDSET_MIC_AEC] = 106,
     [SND_DEVICE_IN_HANDSET_MIC_NS] = 107,
     [SND_DEVICE_IN_HANDSET_MIC_AEC_NS] = 108,
@@ -504,8 +598,12 @@ static int acdb_device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_IN_SPEAKER_DMIC_NS] = 116,
     [SND_DEVICE_IN_SPEAKER_DMIC_AEC_NS] = 117,
     [SND_DEVICE_IN_HEADSET_MIC] = 8,
+    // ZTE_chenjun:
+    [SND_DEVICE_IN_HEADSET_WECHAT_MIC] = 202,
     [SND_DEVICE_IN_HEADSET_MIC_FLUENCE] = 47,
     [SND_DEVICE_IN_VOICE_SPEAKER_MIC] = 11,
+    // ZTE_chenjun:
+    [SND_DEVICE_IN_VOICE_SPEAKER_FOR_HEADPHONE_MIC] = 8,	
     [SND_DEVICE_IN_VOICE_HEADSET_MIC] = 8,
     [SND_DEVICE_IN_HDMI_MIC] = 4,
     [SND_DEVICE_IN_BT_SCO_MIC] = 21,
@@ -550,6 +648,11 @@ static int acdb_device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_IN_UNPROCESSED_THREE_MIC] = 145,
     [SND_DEVICE_IN_UNPROCESSED_QUAD_MIC] = 146,
     [SND_DEVICE_IN_UNPROCESSED_HEADSET_MIC] = 147,
+/* ZTE weizj add audioloop test start*/
+    [SND_DEVICE_IN_VOICE_SPEAKER_MIC_LOOP] = 11,
+    [SND_DEVICE_IN_CAPTURE_MAIN_MIC] = 11,
+    [SND_DEVICE_IN_CAPTURE_AUX_MIC] = 11,
+/* ZTE weizj add audioloop test end*/
 };
 
 struct name_to_index {
@@ -563,12 +666,21 @@ struct name_to_index {
 static struct name_to_index snd_device_name_index[SND_DEVICE_MAX] = {
     {TO_NAME_INDEX(SND_DEVICE_OUT_HANDSET)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER)},
+    {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_OFF_DOLBY)},    
+// ZTE_chenjun
+    {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_AKM)},
+    {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_AKM_OFF_DOLBY)},    
+//
     {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_EXTERNAL_1)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_EXTERNAL_2)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_VBAT)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_REVERSE)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_HEADPHONES)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_HEADPHONES_44_1)},
+// ZTE_chenjun
+    {TO_NAME_INDEX(SND_DEVICE_OUT_HEADPHONES_HI_FI)},
+    {TO_NAME_INDEX(SND_DEVICE_OUT_HEADPHONES_OFF_DOLBY)},    
+//
     {TO_NAME_INDEX(SND_DEVICE_OUT_LINE)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_AND_LINE)},
@@ -602,8 +714,27 @@ static struct name_to_index snd_device_name_index[SND_DEVICE_MAX] = {
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_PROTECTED_VBAT)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED_VBAT)},
+    {TO_NAME_INDEX(SND_DEVICE_OUT_HAC)},
     {TO_NAME_INDEX(SND_DEVICE_IN_HANDSET_MIC)},
     {TO_NAME_INDEX(SND_DEVICE_IN_HANDSET_MIC_EXTERNAL)},
+	// ZTE_chenjun:
+/* ZTE_MODIFY for audio begin */
+	{TO_NAME_INDEX(SND_DEVICE_IN_TEST_BOTTOM_MIC)},
+	{TO_NAME_INDEX(SND_DEVICE_IN_TEST_TOP_MIC)},
+	{TO_NAME_INDEX(SND_DEVICE_IN_TEST_ASSIST_BOTTOM_MIC)},
+	{TO_NAME_INDEX(SND_DEVICE_IN_STEREO_RECORD_MIC)},
+	{TO_NAME_INDEX(SND_DEVICE_IN_DIRECTION_RECORD_MIC)},
+	{TO_NAME_INDEX(SND_DEVICE_IN_TRANSLATION_WORD_RECORD_MIC)},
+	{TO_NAME_INDEX(SND_DEVICE_IN_HIFI_RECORD_MIC)},
+	{TO_NAME_INDEX(SND_DEVICE_IN_FARAWAY_RECORD_MIC)},
+	{TO_NAME_INDEX(SND_DEVICE_IN_RECOGNITION_FAR_TALK_DMIC)},
+/* ZTE_MODIFY for audio end */
+/* ZTE_MODIFY for bargein begin */
+	{TO_NAME_INDEX(SND_DEVICE_IN_BARGE_IN_SPK_MIC)},
+	{TO_NAME_INDEX(SND_DEVICE_IN_BARGE_IN_HEADPHONE_MIC)},
+	{TO_NAME_INDEX(SND_DEVICE_IN_BARGE_IN_HEADPHONE_AND_SPEAKER_MIC)},
+	{TO_NAME_INDEX(SND_DEVICE_IN_BARGE_IN_HEADSET_AND_SPEAKER_MIC)},
+/* ZTE_MODIFY for bargein end */
     {TO_NAME_INDEX(SND_DEVICE_IN_HANDSET_MIC_AEC)},
     {TO_NAME_INDEX(SND_DEVICE_IN_HANDSET_MIC_NS)},
     {TO_NAME_INDEX(SND_DEVICE_IN_HANDSET_MIC_AEC_NS)},
@@ -620,6 +751,8 @@ static struct name_to_index snd_device_name_index[SND_DEVICE_MAX] = {
     {TO_NAME_INDEX(SND_DEVICE_IN_SPEAKER_DMIC_NS)},
     {TO_NAME_INDEX(SND_DEVICE_IN_SPEAKER_DMIC_AEC_NS)},
     {TO_NAME_INDEX(SND_DEVICE_IN_HEADSET_MIC)},
+// ZTE_chenjun:
+    {TO_NAME_INDEX(SND_DEVICE_IN_HEADSET_WECHAT_MIC)},
     {TO_NAME_INDEX(SND_DEVICE_IN_HEADSET_MIC_FLUENCE)},
     {TO_NAME_INDEX(SND_DEVICE_IN_VOICE_SPEAKER_MIC)},
     {TO_NAME_INDEX(SND_DEVICE_IN_VOICE_HEADSET_MIC)},
@@ -664,6 +797,11 @@ static struct name_to_index snd_device_name_index[SND_DEVICE_MAX] = {
     {TO_NAME_INDEX(SND_DEVICE_IN_UNPROCESSED_THREE_MIC)},
     {TO_NAME_INDEX(SND_DEVICE_IN_UNPROCESSED_QUAD_MIC)},
     {TO_NAME_INDEX(SND_DEVICE_IN_UNPROCESSED_HEADSET_MIC)},
+/* ZTE weizj add audioloop test start*/
+    {TO_NAME_INDEX(SND_DEVICE_IN_VOICE_SPEAKER_MIC_LOOP)},
+    {TO_NAME_INDEX(SND_DEVICE_IN_CAPTURE_MAIN_MIC)},
+    {TO_NAME_INDEX(SND_DEVICE_IN_CAPTURE_AUX_MIC)},
+/* ZTE weizj add audioloop test end*/
 };
 
 static char * backend_tag_table[SND_DEVICE_MAX] = {0};
@@ -1099,9 +1237,16 @@ static void set_platform_defaults(struct platform_data * my_data)
     backend_tag_table[SND_DEVICE_OUT_USB_HEADSET] = strdup("usb-headphones");
     backend_tag_table[SND_DEVICE_OUT_SPEAKER_AND_USB_HEADSET] =
         strdup("speaker-and-usb-headphones");
+// ZTE_chenjun
+    backend_tag_table[SND_DEVICE_OUT_HEADPHONES_HI_FI] = strdup("headphones-hi-fi");
+    backend_tag_table[SND_DEVICE_OUT_VOICE_SPEAKER] = strdup("voice-speaker"); // ZTE_chenjun:for voice speaker EC
+//
     backend_tag_table[SND_DEVICE_IN_USB_HEADSET_MIC] = strdup("usb-headset-mic");
     backend_tag_table[SND_DEVICE_IN_CAPTURE_FM] = strdup("capture-fm");
     backend_tag_table[SND_DEVICE_OUT_TRANSMISSION_FM] = strdup("transmission-fm");
+    backend_tag_table[SND_DEVICE_OUT_HEADPHONES_HI_FI] = strdup("headphones-hi-fi");
+    backend_tag_table[SND_DEVICE_OUT_VOICE_SPEAKER] = strdup("voice-speaker"); // ZTE_chenjun:for voice speaker EC
+//
     backend_tag_table[SND_DEVICE_OUT_HEADPHONES_44_1] = strdup("headphones-44.1");
     backend_tag_table[SND_DEVICE_OUT_VOICE_SPEAKER_VBAT] = strdup("voice-speaker-vbat");
     backend_tag_table[SND_DEVICE_OUT_BT_A2DP] = strdup("bt-a2dp");
@@ -4091,6 +4236,7 @@ static int platform_set_codec_backend_cfg(struct audio_device* adev,
             case 32000:
             case 48000:
                 rate_str = "KHZ_48";
+                sample_rate = 48000; // ZTE_chenjun
                 break;
             case 44100:
                 rate_str = "KHZ_44P1";
@@ -4099,13 +4245,16 @@ static int platform_set_codec_backend_cfg(struct audio_device* adev,
             case 88200:
             case 96000:
                 rate_str = "KHZ_96";
+                sample_rate = 96000; // ZTE_chenjun
                 break;
             case 176400:
             case 192000:
                 rate_str = "KHZ_192";
+                sample_rate = 192000; // ZTE_chenjun
                 break;
             default:
                 rate_str = "KHZ_48";
+                sample_rate = 48000; // ZTE_chenjun
                 break;
             }
 

@@ -688,6 +688,10 @@ int disable_audio_route(struct audio_device *adev,
     return 0;
 }
 
+extern void tfa9890_Set_Stereo_SpeakerNeeded(int l_needed, int r_needed);
+extern void tfa9890_Stereo_SpeakerOn_bypass(void);
+extern void tfa9890_Stereo_SpeakerOff_bypass(void);
+
 int enable_snd_device(struct audio_device *adev,
                       snd_device_t snd_device)
 {
@@ -762,6 +766,20 @@ int enable_snd_device(struct audio_device *adev,
         amplifier_enable_devices(snd_device, true);
         audio_route_apply_and_update_path(adev->audio_route, device_name);
 
+	if ((SND_DEVICE_OUT_SPEAKER == snd_device) 
+	    || (SND_DEVICE_OUT_VOICE_SPEAKER == snd_device)) 
+	{
+		tfa9890_Set_Stereo_SpeakerNeeded(1, 1);
+		tfa9890_Stereo_SpeakerOn_bypass();
+	}
+    
+	if ((SND_DEVICE_OUT_HANDSET == snd_device) 
+	    || (SND_DEVICE_OUT_VOICE_HANDSET == snd_device))
+	{
+		tfa9890_Set_Stereo_SpeakerNeeded(0, 1);
+		tfa9890_Stereo_SpeakerOn_bypass();
+	}
+
         if (SND_DEVICE_OUT_HEADPHONES == snd_device &&
             !adev->native_playback_enabled &&
             audio_is_true_native_stream_active(adev)) {
@@ -772,6 +790,7 @@ int enable_snd_device(struct audio_device *adev,
             adev->native_playback_enabled = true;
         }
     }
+
     return 0;
 }
 
@@ -817,6 +836,21 @@ int disable_snd_device(struct audio_device *adev,
         } else {
             audio_route_reset_and_update_path(adev->audio_route, device_name);
             amplifier_enable_devices(snd_device, false);
+
+	    if ((SND_DEVICE_OUT_SPEAKER == snd_device) 
+		|| (SND_DEVICE_OUT_VOICE_SPEAKER == snd_device))
+	    {
+		    tfa9890_Set_Stereo_SpeakerNeeded(0, 0);
+		    tfa9890_Stereo_SpeakerOff_bypass();
+	    }
+    
+	    if ((SND_DEVICE_OUT_HANDSET == snd_device) 
+		|| (SND_DEVICE_OUT_VOICE_HANDSET == snd_device))
+	    {
+		    tfa9890_Set_Stereo_SpeakerNeeded(0, 0);
+		    tfa9890_Stereo_SpeakerOff_bypass();
+	    }
+	    
         }
 
         if (snd_device == SND_DEVICE_OUT_HDMI)
@@ -836,7 +870,6 @@ int disable_snd_device(struct audio_device *adev,
         audio_extn_listen_update_device_status(snd_device,
                                         LISTEN_EVENT_SND_DEVICE_FREE);
     }
-
     return 0;
 }
 
